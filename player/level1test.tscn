@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://csyxmvle4ubfm"]
+
+[ext_resource type="PackedScene" uid="uid://cnedxfn2pxh2t" path="res://level/level.tscn" id="1_7gg64"]
+[ext_resource type="PackedScene" uid="uid://3rjaf7lthxb4" path="res://player/ratplayer.tscn" id="2_0o8od"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Level" parent="." instance=ExtResource("1_7gg64")]
+
+[node name="Ratplayer" parent="." instance=ExtResource("2_0o8od")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.02237, 0, -41.083)

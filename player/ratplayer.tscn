@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://3rjaf7lthxb4"]
+
+[ext_resource type="Script" path="res://player/ratplayer.gd" id="1_2vdo3"]
+[ext_resource type="PackedScene" uid="uid://c3v5n5fgymm0h" path="res://player/Rat_skin/model/RatSkin.tscn" id="1_7lg2l"]
+[ext_resource type="Script" path="res://player/Rat_skin/model/rat_skin.gd" id="3_cp60b"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cy5h8"]
+radius = 0.184858
+height = 0.407686
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3wvf2"]
+
+[node name="Ratplayer" type="CharacterBody3D"]
+script = ExtResource("1_2vdo3")
+
+[node name="Ratskin" parent="." instance=ExtResource("1_7lg2l")]
+unique_name_in_owner = true
+script = ExtResource("3_cp60b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171976, 0)
+shape = SubResource("CapsuleShape3D_cy5h8")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.831693, -0.555236, 0, 0.555236, 0.831693, 0, 0.374707, -0.588433)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
+transform = Transform3D(-1, 0, -8.74228e-08, -3.55271e-15, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+shape = SubResource("SphereShape3D_3wvf2")
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.33299e-08, 0.0197631, -0.690419)
